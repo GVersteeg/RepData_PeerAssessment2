@@ -122,8 +122,8 @@ $(document).ready(function () {
 </div>
 
 
-<div id="synposis" class="section level2">
-<h2>Synposis</h2>
+<div id="synopsis" class="section level2">
+<h2>Synopsis</h2>
 <p>In this report we aim to research what type of severe weather events (1950-2011) have the most impact on the population and on the economy based on a dataset (StormData.csv) on the course website. The impact on the polulation refers to the ‘harm’ done in the form of fatalities and injuries, therefore these values have been added to calculate the total harm caused. The economic consequences refer to the ‘damage’ on property as well as crops, therefore these two values have been summed to calculate the total damage caused.</p>
 <p>The analysis leads to the following conclusions. Most harm to people was caused by ‘TORNADO’ (almost 100,000 people harmed), while on average ‘Heat Wave’ events rank highest causing 70 people harmed per event. Most damage to properties and crops in total is caused by ‘FLOOD’ (150 billion USD), while the average damage per event was highest for ‘TORNADOES, TSTM WIND, HAIL’ (1.6 Billion USD/per event), followed by ‘HEAVY RAIN/SEVERE WEATHER’ (1.25 Billion USD/event).</p>
 <p>The analysis showed that the event types used in the dataset are not leveled correctly, because types (e.g. ‘HURRICANE’) are mixed with ‘occurrences (e.g. ’HURRICANE OPAL’ and ‘HURRICANE OPAL/HIGH WINDS’) and also typecase variations lead to for example ‘Heat Wave’ being different from ‘HEAT WAVE’. Therefore, conclusions drawn are probably not representing actual types of weather events (perhaps the dataset as cleansed by NOAA in 2012, may yield more realistic results).</p>
@@ -182,7 +182,7 @@ DF_raw                                          ## and take a peek</code></pre>
 <p>Next step is to pre-process the data for analysis.</p>
 <p><strong>EVTYPE</strong> EVTYPE, being the type of event that took place, is our main variable for analysis. Because the assignment clearly states <em>“as indicated in the EVTYPE variable”</em> this variable will not be altered in any way and will be used <strong>as is</strong>.</p>
 <p><strong>HARMFULNESS</strong> Examining the provided documentation, FATALITIES (direct and indirect) as well as INJURIES (direct or indirect) can be interpreted as being ‘harmful’ for the health of the population. No preparation is needed, they are already in numeric format.</p>
-<p><strong>Economic consequenties</strong> Economic consequenties refer to the damage listed in the ‘DMG’-variables, where PROPDMG and CROPDMG contain the damage to properties and crops. Note that factor-variables PROPDMGEXP and CROPDMGEXP appear to contain references to multiplications of resp. PROPDMG and CROPDMG. Therefore, these variables need to be taken into account to determine the amount of damage. Let’s first take a look at these ‘EXP’-variables:</p>
+<p><strong>ECONOMIC CONSEQUENTIES</strong> Economic consequenties refer to the damage listed in the ‘DMG’-variables, where PROPDMG and CROPDMG contain the damage to properties and crops. Note that factor-variables PROPDMGEXP and CROPDMGEXP appear to contain references to multiplications of resp. PROPDMG and CROPDMG. Therefore, these variables need to be taken into account to determine the amount of damage. Let’s first take a look at these ‘EXP’-variables:</p>
 <pre class="r"><code>levels(DF_raw$PROPDMGEXP)</code></pre>
 <pre><code>##  [1] &quot;&quot;  &quot;-&quot; &quot;?&quot; &quot;+&quot; &quot;0&quot; &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot; &quot;7&quot; &quot;8&quot; &quot;B&quot; &quot;h&quot; &quot;H&quot; &quot;K&quot;
 ## [18] &quot;m&quot; &quot;M&quot;</code></pre>
@@ -241,7 +241,7 @@ DF_raw                                          ## and take a peek</code></pre>
 </tr>
 </tbody>
 </table>
-<p><em>Reference: <a href="https://plus.google.com/116355576801964691507?rel=author">Soesilo Wijono</a>.</em></p>
+<p><em>Reference: <a href="http://plus8888.blogspot.nl/2015/02/handling-us-noaas-exponent-value-of.html">Soesilo Wijono</a>.</em></p>
 <p>Because the research is based on the cleansing by NOAA it appears best to use this interpretation, instead of making our own ill-informed ‘guesses’.</p>
 <p>Data preparation will therefore consist of deriving the correct multipliers from the EXP-variables, followed by adding two columns to enable easy use of the DMG-variables:</p>
 <ul>

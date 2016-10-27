@@ -4,7 +4,7 @@ October 27th, 2016
 
 
 
-## Synposis
+## Synopsis
 In this report we aim to research what type of severe weather events (1950-2011) have the most impact on the population and on the economy based on a dataset (StormData.csv) on the course website. The impact on the polulation refers to the 'harm' done in the form of fatalities and injuries, therefore these values have been added to calculate the total harm caused. The economic consequences refer to the 'damage' on property as well as crops, therefore these two values have been summed to calculate the total damage caused.
 
 The analysis leads to the following conclusions. Most harm to people was caused by 'TORNADO' (almost 100,000 people harmed), while on average 'Heat Wave' events rank highest causing 70 people harmed per event. Most damage to properties and crops in total is caused by 'FLOOD' (150 billion USD), while the average damage per event was highest for 'TORNADOES, TSTM WIND, HAIL' (1.6 Billion USD/per event), followed by 'HEAVY RAIN/SEVERE WEATHER' (1.25 Billion USD/event).
@@ -78,7 +78,7 @@ EVTYPE, being the type of event that took place, is our main variable for analys
 **HARMFULNESS**
 Examining the provided documentation, FATALITIES (direct and indirect) as well as INJURIES (direct or indirect) can be interpreted as being 'harmful' for the health of the population. No preparation is needed, they are already in numeric format.
 
-**Economic consequenties**
+**ECONOMIC CONSEQUENTIES**
 Economic consequenties refer to the damage listed in the 'DMG'-variables, where PROPDMG and CROPDMG contain the damage to properties and crops.
 Note that factor-variables PROPDMGEXP and CROPDMGEXP appear to contain references to multiplications of resp. PROPDMG and CROPDMG. Therefore, these variables need to be taken into account to determine the amount of damage. Let's first take a look at these 'EXP'-variables:
 
@@ -115,7 +115,7 @@ NOAA actually cleaned up their data (including the EXP-variables) in 2012. Compa
 | ? | space | 0 |
 | 0-8 |  | 10 |
 
-*Reference: [Soesilo Wijono](https://plus.google.com/116355576801964691507?rel=author).*
+*Reference: [Soesilo Wijono](http://plus8888.blogspot.nl/2015/02/handling-us-noaas-exponent-value-of.html).*
 
 Because the research is based on the cleansing by NOAA it appears best to use this interpretation, instead of making our own ill-informed 'guesses'.  
 
