@@ -143,9 +143,9 @@ myURL &lt;- sub(&quot;^https&quot;, &quot;http&quot;, myURL)           ## stripp
 if (!file.exists(&quot;data&quot;)) {                     ## checking the /data
         dir.create(&quot;data&quot;)                      ## directory as landing place
 }
-##download.file(myURL,                            ## download from given URL
-##      destfile = &quot;./data/temp.zip&quot;,             ## into temp.zip
-##      mode=&quot;wb&quot;)                                ## using binary mode
+download.file(myURL,                            ## download from given URL
+      destfile = &quot;./data/temp.zip&quot;,             ## into temp.zip
+      mode=&quot;wb&quot;)                                ## using binary mode
 dateDownloaded &lt;- date()                        ## register date of download
 DF_raw &lt;- tbl_df(read.csv(&quot;./data/temp.zip&quot;))   ## load into dataset/tibble
 DF_raw                                          ## and take a peek</code></pre>

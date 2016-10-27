@@ -30,9 +30,9 @@ myURL <- sub("^https", "http", myURL)           ## stripping s from https (Mac's
 if (!file.exists("data")) {                     ## checking the /data
         dir.create("data")                      ## directory as landing place
 }
-##download.file(myURL,                            ## download from given URL
-##      destfile = "./data/temp.zip",             ## into temp.zip
-##      mode="wb")                                ## using binary mode
+download.file(myURL,                            ## download from given URL
+      destfile = "./data/temp.zip",             ## into temp.zip
+      mode="wb")                                ## using binary mode
 dateDownloaded <- date()                        ## register date of download
 DF_raw <- tbl_df(read.csv("./data/temp.zip"))   ## load into dataset/tibble
 DF_raw                                          ## and take a peek
